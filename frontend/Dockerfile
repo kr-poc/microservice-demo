@@ -7,7 +7,7 @@ COPY . /frontend
 RUN make install-frontend-dep build-frontend
 
 
-FROM nginx:1.16.0
+FROM n7832lxy.mirror.aliyuncs.com/library/nginx:1.16.0
 
 WORKDIR /frontend
 
