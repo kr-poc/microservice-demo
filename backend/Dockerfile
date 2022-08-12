@@ -1,4 +1,4 @@
-FROM n7832lxy.mirror.aliyuncs.com/library/ubuntu:20.04
+FROM ubuntu:14.04
 
 WORKDIR /workspace
 
