@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 backend_port=20219
 
@@ -22,3 +22,4 @@ tar xvf $1
 nohup ./backend > /dev/null 2> /dev/null  &
 
 rm $1
+
