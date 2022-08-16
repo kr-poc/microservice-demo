@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 backend_port=20219
 
