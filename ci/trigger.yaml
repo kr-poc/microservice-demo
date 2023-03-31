@@ -1,0 +1,28 @@
+stages: 
+  - build
+  - deploy
+build:
+  - name: a
+    service_module: myapp-1
+deploy:
+  strategy: single
+  envs_name:
+    - dev
+rules: 
+  branchs: 
+      - 'main*'
+  events:
+      - pull_request
+      - push
+      - tag
+  strategy:
+    auto_cancel: true    
+  match_folders: 
+    match_folders_tree:
+      - name: a
+        service_module: myapp-1
+        file_tree:
+          - backend
+cache_set: 
+    ignore_cache: false
+    reset_cache: false
