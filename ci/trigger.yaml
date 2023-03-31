@@ -5,9 +5,11 @@ build:
   - name: a
     service_module: myapp-1
 deploy:
-  strategy: single
+  strategy: base
   envs_name:
     - dev
+  env_recycle_policy: never
+  base_env: dev
 rules: 
   branchs: 
       - 'main*'
