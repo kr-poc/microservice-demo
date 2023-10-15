@@ -7,7 +7,7 @@ COPY . /frontend
 RUN make install-frontend-dep build-frontend
 
 
-FROM nginx:1.16.0
+FROM nginx:1.22.1
 
 WORKDIR /frontend
 
