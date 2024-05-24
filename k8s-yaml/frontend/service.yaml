@@ -1,13 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
   labels:
-    app.kubernetes.io/instance: frontend
-    app.kubernetes.io/name: demo
+    app: frontend
+    version: rc-origin
+  name: frontend
 spec:
   type: NodePort
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+  - name: "frontend-service"
+    port: 5001
+    targetPort: 80
+  selector:
+    app: frontend

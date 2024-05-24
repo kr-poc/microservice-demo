@@ -1,18 +1,20 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: frontend
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 100m
-  labels:
-    app.kubernetes.io/instance: frontend
-    app.kubernetes.io/name: demo
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: koderover
   rules:
-  - host: {{.demo_domain}}
+  - host: frontend-$Product$-$EnvName$.{{.suffix}}
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: frontend
-          servicePort: 80
+          service:
+            name: frontend
+            port:
+              number: 5001
+        pathType: ImplementationSpecific
