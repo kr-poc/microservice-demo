@@ -1,0 +1,14 @@
+[Unit]
+Description=Backend Service
+After=network.target
+
+[Service]
+ExecStart=/root/microservice/backend/backend
+ExecStop=/bin/bash -c 'backend_port=20219 && kill -9 $(lsof -i tcp:$backend_port -t)'
+Restart=always
+User=root
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target
